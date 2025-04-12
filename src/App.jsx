@@ -60,7 +60,7 @@ function Home() {
       <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
         <div className="container">
           <Link to="/" className="navbar-brand">
-            <img src="./src/assets/Logo1.jpeg" alt="Logo JRX" height="60" />
+            <img src="/assets/Logo1.jpeg" alt="Logo JRX" height="60" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span className="navbar-toggler-icon"></span>
@@ -87,11 +87,11 @@ function Home() {
         <div className="container">
           <Carousel>
             <Carousel.Item>
-              <img className="d-block w-100" src="./src/assets/auto.jpg" alt="Slide 1" />
+              <img className="d-block w-100" src="/assets/auto.jpg" alt="Slide 1" />
               <Carousel.Caption><h5>Confiança e Segurança</h5></Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block w-100" src="./src/assets/foto1.jpeg" alt="Slide 2" />
+              <img className="d-block w-100" src="/assets/foto1.jpeg" alt="Slide 2" />
               <Carousel.Caption><h5>Planos sob medida</h5></Carousel.Caption>
             </Carousel.Item>
           </Carousel>
