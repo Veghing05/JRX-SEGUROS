@@ -6,6 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import PoliticaPrivacidade from './PoliticaPrivacidade';
+import { SiTryhackme } from 'react-icons/si';
 
 function Home() {
   const [formData, setFormData] = useState({ nome: '', email: '', mensagem: '' });
@@ -16,23 +17,33 @@ function Home() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    fetch('https://formspree.io/f/mleqnpra', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    }).then(response => {
-      setLoading(false);
+    setStatus({ type: '', message: '' });
+  
+    try {
+      const apiUrl = process.env.REACT_APP_API_URL;
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+  
       if (response.ok) {
-        setStatus({ type: 'success', message: 'Mensagem enviada com sucesso!' });
+        setStatus({ type: "success", message: "Mensagem enviada com sucesso!" });
         setFormData({ nome: '', email: '', mensagem: '' });
       } else {
-        setStatus({ type: 'danger', message: 'Erro ao enviar mensagem. Tente novamente.' });
+        setStatus({ type: "danger", message: "Erro ao enviar mensagem." });
       }
-    });
+    } catch (error) {
+      console.error("Erro:", error);
+      setStatus({ type: "danger", message: "Erro ao enviar mensagem." });
+    }
+  
+    setLoading(false);
   };
+  
 
   const whatsappLink = "https://wa.me/5511976056081?text=Ol%C3%A1!%20Gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
