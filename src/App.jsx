@@ -4,9 +4,11 @@ import './App.css';
 import { Helmet } from 'react-helmet';
 import { FaWhatsapp } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Carousel from 'react-bootstrap/Carousel';
 import PoliticaPrivacidade from './PoliticaPrivacidade';
 import { SiTryhackme } from 'react-icons/si';
+
 
 function Home() {
   const [formData, setFormData] = useState({ nome: '', email: '', mensagem: '' });
@@ -114,11 +116,11 @@ function Home() {
         <div className="container">
           <h2 className="text-center mb-4">Nossos Serviços</h2>
           <div className="row">
-            {[{ titulo: "Seguro Auto", descricao: "Proteja seu carro com os melhores planos." },
-              { titulo: "Seguro Vida", descricao: "Segurança para você e sua família." },
-              { titulo: "Seguro Empresarial", descricao: "Soluções para o seu negócio." },
-            { titulo: "Planos Odontológicos", descricao: "." },
-            {titulo: "Plano de Saúde", descricao: "." },
+            {[{ titulo: "Seguro Auto", descricao: "Garanta proteção total para o seu veículo com cobertura completa e assistência 24h." },
+              { titulo: "Seguro Vida", descricao: "Tranquilidade e segurança para você e sua família em todos os momentos." },
+              { titulo: "Seguro Empresarial", descricao: "Proteja o patrimônio do seu negócio com soluções personalizadas." },
+            { titulo: "Planos Odontológicos", descricao: "Cuide do seu sorriso com planos acessíveis e ampla cobertura." },
+            {titulo: "Plano de Saúde", descricao: "Tenha acesso à saúde de qualidade para você e sua família." },
             ].map((servico, i) => (
               <div className="col-md-4 mb-4" key={i}>
                 <div className="card h-100 shadow-sm">
