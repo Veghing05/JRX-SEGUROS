@@ -23,7 +23,8 @@ function Home() {
     setStatus({ type: '', message: '' });
   
     try {
-      const apiUrl = process.env.REACT_APP_API_URL;
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001/api/email';
+    
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -116,6 +117,8 @@ function Home() {
             {[{ titulo: "Seguro Auto", descricao: "Proteja seu carro com os melhores planos." },
               { titulo: "Seguro Vida", descricao: "Segurança para você e sua família." },
               { titulo: "Seguro Empresarial", descricao: "Soluções para o seu negócio." },
+            { titulo: "Planos Odontológicos", descricao: "." },
+            {titulo: "Plano de Saúde", descricao: "." },
             ].map((servico, i) => (
               <div className="col-md-4 mb-4" key={i}>
                 <div className="card h-100 shadow-sm">
